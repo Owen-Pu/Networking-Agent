@@ -1,0 +1,115 @@
+# Startup Outreach Scout Configuration
+
+# RSS Feeds to monitor
+rss_feeds:
+  - url: "https://techcrunch.com/feed/"
+    name: "TechCrunch"
+  - url: "https://feeds.feedburner.com/venturebeat/SZYF"
+    name: "VentureBeat"
+  - url: "https://news.ycombinator.com/rss"
+    name: "Hacker News"
+  # Add more RSS feeds as needed
+  # - url: "https://news.ycombinator.com/rss"
+  #   name: "Hacker News"
+
+# Keywords for filtering articles
+keywords:
+  # Articles must contain at least one of these
+  include:
+    - "startup"
+    - "funding"
+    - "raised"
+    - "series"
+    - "seed"
+    - "venture"
+    - "founder"
+    - "hired"
+    - "joins"
+    - "team"
+  # Articles containing these will be excluded
+  exclude:
+    - "layoff"
+    - "shutdown"
+    - "bankruptcy"
+    - "lawsuit"
+    - "fraud"
+
+# Your networking preferences
+preferences:
+  # Target schools (leave empty to match any)
+  schools:
+    - "Vanderbilt University"
+    - "Vanderbilt"
+    - "Gilman School"
+
+  # Target roles/functions
+  roles:
+    - "Product"
+    - "Design"
+    - "Data Science"
+    - "Growth"
+    - "Operations"
+    - "Strategy"
+    - "Data"
+    - "finance"
+    - "Business Development"
+
+
+  # Target industries
+  industries:
+    - "AI"
+    - "ML"
+    - "Agentic AI"
+    - "SaaS"
+    - "FinTech"
+    - "Enterprise Software"
+    - "Developer Tools"
+
+  # Target seniority levels
+  seniority_levels:
+    - "Senior"
+    - "Lead"
+    - "Staff"
+    - "Principal"
+    - "Director"
+    - "Founder"
+    - "CoFounder"
+
+  # Target locations (leave empty to match any)
+  locations:
+    - "San Francisco"
+    - "Bay Area"
+    - "New York"
+    - "Nashville"
+    - "San Diego"
+    - "Seattle"
+    - "Miami"
+
+
+# Scoring weights (higher = more important)
+scoring_weights:
+  school_match: 2.0      # Match on target school
+  role_match: 1.5        # Match on target role
+  industry_match: 1.5    # Match on target industry
+  seniority_match: 0.8   # Match on target seniority
+  location_match: 1.0    # Match on target location
+
+# Processing limits
+limits:
+  max_articles_per_feed: 20       # Max articles to process per RSS feed
+  max_companies_per_article: 5   # Max companies to extract per article
+  max_people_per_company: 5      # Max people to extract per company
+  min_response_threshold: 0.5     # Minimum response likelihood (0.0-1.0) - Stage 1 gate
+  min_score_threshold: 2.5        # Minimum total score to include in output
+
+# Output configuration
+output_format: "csv"  # Options: "csv" or "sheets"
+
+# Google Sheets configuration (optional)
+# Uncomment and fill in if you want to use Google Sheets output
+# google_sheets:
+#   sheet_id: "your-google-sheet-id-here"
+#   credentials_path: "path/to/service-account-credentials.json"
+
+# Debug mode (set to true to keep all candidates, even those that don't match criteria)
+debug_keep_nonmatching: False
